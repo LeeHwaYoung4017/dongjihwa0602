@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dongjihwa0602.mapper.NoticeMapper">
+    <!--1. com.javadeveloperzone.dto.Notice alias 수정-->
+
+
+    <select id="getNoticeList" resultType="com.example.dongjihwa0602.dto.Notice">
+        SELECT
+            ID
+            ,TITLE
+            ,CONTENT
+            ,READCNT
+            ,REGSTER
+            ,DATE_FORMAT(regdate, '%Y-%m-%d') AS REGDATE
+            ,DATE_FORMAT(updatedate, '%Y-%m-%d') AS UPDATEDATE
+        FROM NOTICE
+        WHERE 1=1
+        <if test="type == 'title'">
+            AND TITLE LIKE CONCAT('%', #{title}, '%')
+        </if>
+        <if test="type == 'content'">
+            AND CONTENT LIKE CONCAT('%', #{content}, '%')
+        </if>
+        ORDER BY ID DESC
+        LIMIT #{skip} , #{amount}
+    </select>
+
+    <select id="noticeTotalCount" resultType="int">
+        SELECT
+          COUNT(*)
+        FROM NOTICE
+        WHERE 1=1
+        <if test="type == 'title'">
+            AND TITLE LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'content'">
+            AND CONTENT LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+    </select>
+
+    <select id="getNoticeOne" resultType="com.example.dongjihwa0602.dto.Notice">
+        SELECT
+            ID
+             ,TITLE
+             ,CONTENT
+             ,READCNT
+             ,REGSTER
+             ,DATE_FORMAT(REGDATE, '%Y-%m-%d') AS REGDATE
+             ,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d') AS UPDATEDATE
+        FROM NOTICE
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="saveNotice" parameterType="com.example.dongjihwa0602.dto.Notice">
+        INSERT INTO NOTICE(
+                        TITLE
+                        ,CONTENT
+                        ,READCNT
+                        ,REGSTER
+                        )
+                VALUES (
+                        #{title}
+                        ,#{content}
+                        ,#{readcnt}
+                        ,#{regster}
+                        )
+    </insert>
+
+
+</mapper>

@@ -26,6 +26,10 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+<<<<<<< HEAD
+=======
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+>>>>>>> f47c2e0 (commit)
 }
 
 tasks.named('test') {
