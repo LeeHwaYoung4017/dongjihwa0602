@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>시설안내-동지화캠핑장 Dongjihwa Camping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="fragments/header :: header"></th:block>
+  </head>
+  <body>
+
+  <div th:replace="fragments/nav :: nav"></div>
+
+    <section class="home-slider owl-carousel img" style="background-image: url(../static/images/DJI_0906.JPG);">
+
+      <div class="slider-item" style="background-image: url(../static/images/DJI_0906.JPG);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<h1 class="mb-3 mt-5 bread">시설안내</h1>
+	            <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Services</span></p> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-3">
+          		<div class="col-md-7 heading-section ftco-animate text-center">
+            		<h2 class="mb-4">놀이터</h2>
+            		<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p><br>
+            		<img src="../static/images/bunli.jpg" style="max-width:100%; height:30em">
+            		<p class="mt-6">이제 막 오픈한 캠핑장으로 나무 또한 아직 신생아입니다. 그늘이 많이 없는 점 양해 부탁드리며, 여름철엔 타프없인 힘들 것으로 예상되오니 참고 부탁드립니다.</p>
+            		<br><br>
+					<h2 class="mb-4">2</h2>
+            		<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            		<p class="mt-6">ㅁㄴㅇㅁㄴ</p>
+          		
+          		</div>
+        	</div>
+    	</div>
+    </section>
+
+  <!-- footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <!-- loader -->
+  <div th:replace="/fragments/loader :: loader"></div>
+
+  </body>
+</html>

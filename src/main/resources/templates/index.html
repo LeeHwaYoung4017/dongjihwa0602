@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>동지화캠핑장 Dongjihwa Camping</title>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+
+    <!-- 네비 -->
+    <div th:replace="fragments/nav :: nav"></div>
+
+    <section class="home-slider owl-carousel img" style="background-image: url(/images/main1.jpg);">
+      <div class="slider-item">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-6 col-sm-12 ftco-animate">
+            	<span class="subheading">Welcome</span>
+              <h1 class="mb-4">Dongjihwa</h1>
+              <!-- <p class="mb-4 mb-md-5">소구문자</p> -->
+              <p>
+              	<a href="https://www.camfit.co.kr/camp/642ceb4d8688c5001e8d8802" class="btn btn-primary p-3 px-xl-4 py-xl-3">예약하기</a> 
+              	<a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">이용안내</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url(/images/main2.png);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Welcome</span>
+              <h1 class="mb-4">Dongjihwa</h1>
+              <!-- <p class="mb-4 mb-md-5">소구문자</p> -->
+              <p>
+              	<a href="https://www.camfit.co.kr/camp/642ceb4d8688c5001e8d8802" class="btn btn-primary p-3 px-xl-4 py-xl-3">예약하기</a> 
+              	<a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">이용안내</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-intro">
+    	<div class="container-wrap">
+    		<div class="wrap d-md-flex">
+	    		<div class="info">
+	    			<div class="row no-gutters">
+	    				<div class="col-md-4 d-flex ftco-animate">
+	    					<div class="icon"><span class="icon-phone"></span></div>
+	    					<div class="text">
+	    						<h3>0507-1366-4720</h3>
+	    						<!-- <p>---</p> -->
+	    					</div>
+	    				</div>
+	    				<div class="col-md-4 d-flex ftco-animate">
+	    					<div class="icon"><span class="icon-my_location"></span></div>
+	    					<div class="text">
+	    						<h3>강원 화천군 화천읍 신읍리 819</h3>
+	    						<p>819, Sineup-ri, Hwacheon-eup, Hwacheon-gun, Gangwon-do</p>
+	    					</div>
+	    				</div>
+	    				<div class="col-md-4 d-flex ftco-animate">
+	    					<div class="icon"><span class="icon-clock-o"></span></div>
+	    					<div class="text">
+	    						<h3>금~일</h3>
+	    						<p>입실시간 15:00 퇴실시간 11:00pm</p>
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div class="social d-md-flex pl-md-5 p-4 align-items-center">
+	    			<ul class="social-icon">
+              <!-- <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li> -->
+              <!-- <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li> -->
+              <li class="ftco-animate"><a href="https://cafe.naver.com/dongjihwa" target='_blank'><span class="icon icon-local_cafe"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.instagram.com/the.dongjihwa/" target='_blank'><span class="icon-instagram"></span></a></li>
+            </ul>
+	    		</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="ftco-about d-md-flex">
+    	<div class="one-half img" style="background-image: url(/images/main2.png);"></div>
+    	<div class="one-half ftco-animate">
+        <div class="heading-section ftco-animate ">
+          <h2 class="mb-4">캠핑장 소개</h2>
+        </div>
+        <div>
+  				<p>동짓날에도 배꽃이 피는 따뜻한 마을 동지화캠핑장 입니다. 넓은 사이트와 개별욕실로 프라이빗하게! 운치있는 산과 수달이 출몰하는 개울소리에 힐링되게! 겨울에도 산천어축제와 함께! 언제나 편안하고 즐겁고 힐링충만한 동지화로 캠핑오세요^^</p>
+  			</div>
+    	</div>
+    </section>
+
+    <!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <!-- loader -->
+    <div th:replace="/fragments/loader :: loader"></div>
+
+  </body>
+</html>

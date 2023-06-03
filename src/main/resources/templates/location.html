@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>오시는길-동지화캠핑장 Dongjihwa Camping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="fragments/header :: header"></th:block>
+  </head>
+  <body>
+
+  <div th:replace="fragments/nav :: nav"></div>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-3">
+          		<div class="col-md-7 heading-section ftco-animate text-center">
+            		<h2 class="mb-4">위치안내</h2>
+            		<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            		<p class="mt-6">[24113]강원 화천군 화천읍 신읍리 819 동지화캠핑장<br>819, Sineup-ri, Hwacheon-eup, Hwacheon-gun, Gangwon-do</p>
+            		<!-- <p class="mt-6">819, Sineup-ri, Hwacheon-eup, Hwacheon-gun, Gangwon-do</p> -->
+            		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.530066373325!2d127.69626605225284!3d38.12786589002319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3562942383ae4b41%3A0x33f36427e3cc8095!2z6rCV7JuQ64-EIO2ZlOyynOq1sCDtmZTsspzsnY0g7Iug7J2N66asIDE0MDYtNzU!5e0!3m2!1sko!2skr!4v1685012199046!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          		
+          		</div>
+        	</div>
+    	</div>
+    </section>
+
+  <!-- footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <!-- loader -->
+  <div th:replace="/fragments/loader :: loader"></div>
+
+  </body>
+</html>
