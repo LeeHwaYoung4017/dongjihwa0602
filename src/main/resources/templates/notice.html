@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>오시는길-동지화캠핑장 Dongjihwa Camping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="fragments/header :: header"></th:block>
+  </head>
+  <body>
+
+  <div th:replace="fragments/nav :: nav"></div>
+
+      <section class="ftco-section">
+          <div class="container">
+              <div class="row justify-content-center mb-5 pb-3">
+                  <div class="col-md-7 heading-section ftco-animate text-center">
+                      <h2 class="mb-4">공지사항</h2>
+                      <!--<p>소구문구</p>-->
+                  </div>
+              </div>
+
+
+              <div class="content-line">
+                  <ul class="content-line-ul">
+                      <li style="width: 10%; height: 100%;">번호</li>
+                      <li style="width: 50%; height: 100%">제목</li>
+                      <li style="width: 15%; height: 100%">작성자</li>
+                      <li style="width: 15%; height: 100%">등록일</li>
+                      <li style="width: 10%; height: 100%">조회</li>
+                  </ul>
+              </div>
+
+              <br>
+              <!-- 페이지 -->
+              <div class="row mt-5">
+                  <div class="col text-center">
+                      <div class="block-27">
+                          <ul>
+                              <li><a href="#">&lt;</a></li>
+                              <li class="active"><span>1</span></li>
+                              <li><a href="#">2</a></li>
+                              <li><a href="#">3</a></li>
+                              <li><a href="#">4</a></li>
+                              <li><a href="#">5</a></li>
+                              <li><a href="#">&gt;</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+  <!-- footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <!-- loader -->
+  <div th:replace="/fragments/loader :: loader"></div>
+
+  </body>
+</html>
