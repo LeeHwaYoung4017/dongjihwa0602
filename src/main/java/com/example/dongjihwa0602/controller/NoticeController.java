@@ -2,6 +2,7 @@ package com.example.dongjihwa0602.controller;
 
 import com.example.dongjihwa0602.dto.Criteria;
 import com.example.dongjihwa0602.dto.Notice;
+import com.example.dongjihwa0602.dto.PageDto;
 import com.example.dongjihwa0602.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +22,14 @@ public class NoticeController {
 
     @GetMapping("/notice")
     public String getNoticeList(Criteria criteria, Model model){
-//        List<Notice> noticeList = noticeService.getNoticeList();
-//        model.addAttribute("notice", noticeList);
+
+        List<Notice> noticeList = noticeService.getNoticeList(criteria);
+        model.addAttribute("notice", noticeList);
+
+        int total = noticeService.noticeTotalCount(criteria);
+        PageDto pageDto = new PageDto(criteria, total);
+        model.addAttribute("page", pageDto);
+
         return "notice";
     }
 

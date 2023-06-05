@@ -7,13 +7,14 @@
 
     <select id="getNoticeList" resultType="com.example.dongjihwa0602.dto.Notice">
         SELECT
-            ID
+            NO
             ,TITLE
             ,CONTENT
-            ,READCNT
-            ,REGSTER
-            ,DATE_FORMAT(regdate, '%Y-%m-%d') AS REGDATE
-            ,DATE_FORMAT(updatedate, '%Y-%m-%d') AS UPDATEDATE
+            ,NAME
+            ,DATE
+            ,VIEWCNT
+/*            ,DATE_FORMAT(regdate, '%Y-%m-%d') AS REGDATE
+            ,DATE_FORMAT(updatedate, '%Y-%m-%d') AS UPDATEDATE*/
         FROM NOTICE
         WHERE 1=1
         <if test="type == 'title'">
@@ -26,6 +27,7 @@
         LIMIT #{skip} , #{amount}
     </select>
 
+<!--
     <select id="noticeTotalCount" resultType="int">
         SELECT
           COUNT(*)
@@ -66,6 +68,7 @@
                         ,#{regster}
                         )
     </insert>
+-->
 
 
 </mapper>
