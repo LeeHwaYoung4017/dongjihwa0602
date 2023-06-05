@@ -16,6 +16,10 @@ public interface NoticeMapper {
 
     void saveNotice(Notice notice);
 
+    List<Notice> getNoticeList();
+
+    int noticeTotalCount();
+
     Notice getNoticeOne(String id);
 
 }
