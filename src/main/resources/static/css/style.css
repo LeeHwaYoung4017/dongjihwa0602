@@ -8636,22 +8636,22 @@ textarea.form-control {
     margin-bottom: 4px;
     font-weight: 400; }
     .block-27 ul li a, .block-27 ul li span {
-
+<<<<<<< HEAD
       color: #fac564;
-
+=======
       color: white;
-
+>>>>>>> f47c2e0 (commit)
       text-align: center;
       display: inline-block;
       width: 40px;
       height: 40px;
       line-height: 40px;
       border-radius: 50%;
-
+<<<<<<< HEAD
       border: 1px solid #bf7e06; }
-
+=======
       border: 1px solid #3f3f3f; }
-
+>>>>>>> f47c2e0 (commit)
     .block-27 ul li.active a, .block-27 ul li.active span {
       background: #fac564;
       color: #fff;
@@ -8891,7 +8891,8 @@ textarea.form-control {
     color: #000;
     font-style: italic; }
 
-
+<<<<<<< HEAD
+=======
 .content-line {
   position: relative;
   top: 5%;
@@ -8915,7 +8916,7 @@ textarea.form-control {
 }
 
 
-
+>>>>>>> f47c2e0 (commit)
 #ftco-loader {
   position: fixed;
   width: 96px;
