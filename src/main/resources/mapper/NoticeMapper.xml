@@ -8,27 +8,9 @@
     <select id="getNoticeList" resultType="com.example.dongjihwa0602.dto.Notice">
         SELECT * FROM NOTICE
         ORDER BY NO DESC
-
-        <!--SELECT
-            NO
-            ,TITLE
-            ,CONTENT
-            ,NAME
-            ,DATE
-            ,VIEWCNT
-        FROM NOTICE
-        WHERE 1=1
-        <if test="type == 'title'">
-            AND TITLE LIKE CONCAT('%', #{title}, '%')
-        </if>
-        <if test="type == 'content'">
-            AND CONTENT LIKE CONCAT('%', #{content}, '%')
-        </if>
-        ORDER BY ID DESC
-        LIMIT #{skip} , #{amount}-->
     </select>
 
-<!--
+
     <select id="noticeTotalCount" resultType="int">
         SELECT
           COUNT(*)
@@ -69,7 +51,6 @@
                         ,#{regster}
                         )
     </insert>
--->
 
 
 </mapper>

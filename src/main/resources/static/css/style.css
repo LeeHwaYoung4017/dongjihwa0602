@@ -8925,8 +8925,12 @@ textarea.form-control {
   color: white;
 }
 
-.content-line-ul-1 li a:hover {
+.content-line-a {
   color: white;
+}
+
+.content-line-a:hover {
+  color: #fac564;
 }
 
 

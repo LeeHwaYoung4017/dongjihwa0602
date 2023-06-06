@@ -30,11 +30,11 @@
                       <li style="width: 10%; height: 100%">조회</li>
                   </ul>
                   <ul class="content-line-ul-1" th:each="notice : ${notice}">
-                      <li style="width: 10%; height: 100%;"><a>1</a></li>
-                      <li style="width: 50%; height: 100%"><a>제목글111111</a></li>
-                      <li style="width: 15%; height: 100%"><a>이화영</a></li>
-                      <li style="width: 15%; height: 100%"><a>2023.06.05</a></li>
-                      <li style="width: 10%; height: 100%"><a>5</a></li>
+                      <li style="width: 10%;"><a href="" class="content-line-a" th:text="${notice.no}"></a></li>
+                      <li style="width: 50%;"><a href="" class="content-line-a" th:text="${notice.title}"></a></li>
+                      <li style="width: 15%;"><a href="" class="content-line-a" th:text="${notice.name}"></a></li>
+                      <li style="width: 15%;"><a href="" class="content-line-a" th:text="${notice.date}"></a></li>
+                      <li style="width: 10%;"><a href="" class="content-line-a" th:text="${notice.viewcnt}"></a></li>
                   </ul>
               </div>
 
