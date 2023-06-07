@@ -37,26 +37,24 @@
         WHERE NO = #{NO}
     </select>
 
+    <!-- 조회수 1증가 -->
+    <update id="getReadNoticeCntCount">
+        update NOTICE set VIEWCNT = VIEWCNT+1 where NO = #{no}
+    </update>
+
+
+    <!-- 게시글 등록 -->
     <insert id="saveNotice" parameterType="com.example.dongjihwa0602.dto.Notice">
         INSERT INTO NOTICE(
-                        TITLE
-                        ,CONTENT
-                        ,READCNT
-                        ,REGSTER
-                        )
-                VALUES (
-                        #{title}
-                        ,#{content}
-                        ,#{readcnt}
-                        ,#{regster}
-                        )
+                           TITLE
+                           ,CONTENT
+                           ,NAME
+                           )
+        VALUES (
+                #{title}
+                ,#{content}
+                ,#{name}
+               )
     </insert>
-
-    <!-- 조회수 1증가 -->
- <!--
-    <update id="readNoticeCntCount">
-        update NOTICE set VIEWCNT = VIEWCNT+1 where = #{no}
-    </update>
--->
 
 </mapper>

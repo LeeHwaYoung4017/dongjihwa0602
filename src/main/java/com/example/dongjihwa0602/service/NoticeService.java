@@ -33,8 +33,8 @@ public class NoticeService {
         return noticeMapper.getNoticeOne(id);
     }
 
-//    public int getReadNoticeCntCount(String no){
-//        return noticeMapper.getReadNoticeCntCount(no);
-//    }
+    public int getReadNoticeCntCount(String no){
+        return noticeMapper.getReadNoticeCntCount(no);
+    }
 
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>글작성/수정-동지화캠핑장 Dongjihwa Camping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <th:block th:replace="fragments/header :: header"></th:block>
+</head>
+<body>
+
+<div th:replace="fragments/nav :: nav"></div>
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">글작성</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="name"><h5>작성자</h5></label>
+                        <input type="text" class="form-control" id="name" name="name" value="관리자" style="width: 100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="title"><h5>제목</h5></label>
+                        <input type="text" class="form-control" id="title" name="title" style="width: 100%">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content"><h5>내용</h5></label>
+                        <textarea name="content" id="content" cols="100" rows="10" style="width: 100%" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" onclick="saveNotice()" value="저장하기" class="btn py-3 px-4 btn-primary">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- footer -->
+<div th:replace="/fragments/footer :: footer"></div>
+
+<!-- loader -->
+<div th:replace="/fragments/loader :: loader"></div>
+
+</body>
+
+<script>
+
+    let oEditors = []
+
+    function saveNotice(){
+        let content = document.getElementById("content").value;
+
+        if(content == '') {
+            alert("내용을 입력해주세요.");
+            return;
+        } else {
+            let data = {
+                title: $("#title").val()
+                ,name: $("#name").val()
+                ,content: content
+            };
+
+            console.log(data);
+
+            $.ajax({
+                url: "/saveNotice"
+                ,async : true
+                ,data: JSON.stringify(data)
+                ,type: 'POST'
+                ,contentType : "application/json"
+                ,success: function(data) {
+                    alert('저장하였습니다.');
+                    window.location.href = '/notice';
+                }
+                ,error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR)
+                    alert('오류가 발생하였습니다.')
+                    window.location.href = '/createNotice';
+                }
+            })
+        }
+    }
+
+</script>
+</html>

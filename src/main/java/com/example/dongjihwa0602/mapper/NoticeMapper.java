@@ -18,6 +18,6 @@ public interface NoticeMapper {
 
     Notice getNoticeOne(String no);
 
-//    int getReadNoticeCntCount(String no);
+    int getReadNoticeCntCount(String no);
 
 }

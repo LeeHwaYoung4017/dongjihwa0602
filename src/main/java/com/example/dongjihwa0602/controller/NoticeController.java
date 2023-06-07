@@ -10,11 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.SimpleTimeZone;
 
 @Controller
 public class NoticeController {
@@ -38,10 +37,21 @@ public class NoticeController {
     @GetMapping("/readNotice/{no}")
     public String readNotice(@PathVariable("no") String no, Model model){
         Notice notice = noticeService.getNoticeOne(no);
-//        noticeService.getReadNoticeCntCount(no);
+        noticeService.getReadNoticeCntCount(no);
         model.addAttribute("notice",notice);
 
         return "readNotice";
+    }
+
+    @PostMapping("/saveNotice")
+    public String saveNotice(@RequestBody Notice notice){
+        noticeService.saveNotice(notice);
+        return "createNotice";
+    }
+
+    @RequestMapping("/createNotice")
+    public String createNotice(){
+        return "createNotice";
     }
 
 }
