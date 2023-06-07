@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>오시는길-동지화캠핑장 Dongjihwa Camping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="fragments/header :: header"></th:block>
+  </head>
+  <body>
+
+  <div th:replace="fragments/nav :: nav"></div>
+
+  <section class="ftco-section">
+      <div class="container">
+          <div class="row justify-content-center mb-5 pb-3">
+              <div class="col-md-7 heading-section ftco-animate text-center">
+                  <h2 class="mb-4">공지사항</h2>
+                  <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                  <br>
+                  <h4 class="mb-4" th:text="${notice.title}"></h4>
+                  <p class="mt-3" th:text="${notice.name} "></p>
+                  <p class="mt-3" style="display:inline"; th:text="${notice.date} "></p>
+                  <p class="mt-3" style="display:inline"; th:text=" 조회수 "></p>
+                  <p class="mt-3" style="display:inline"; th:text="${notice.viewcnt}"></p>
+                  <br><br>
+                  <p class="mt-3" th:text="${notice.content}"></p>
+
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <!-- loader -->
+  <div th:replace="/fragments/loader :: loader"></div>
+
+  </body>
+</html>

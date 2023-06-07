@@ -16,6 +16,8 @@ public interface NoticeMapper {
 
     void saveNotice(Notice notice);
 
-    Notice getNoticeOne(String id);
+    Notice getNoticeOne(String no);
+
+//    int getReadNoticeCntCount(String no);
 
 }
