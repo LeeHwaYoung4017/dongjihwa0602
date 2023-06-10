@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>관리자 페이지-동지화캠핑장 Dongjihwa Camping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="fragments/header :: header"></th:block>
+  </head>
+  <body>
+
+  <th:block th:replace="fragments/nav :: nav"></th:block>
+  <!--<div th:replace="fragments/managerNav :: managerNav"></div> -->
+
+    <section class="home-slider owl-carousel img" style="background-image: url(/images/DJI_0906.JPG);">
+
+      <div class="slider-item" style="background-image: url(/images/DJI_0906.JPG);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<h1 class="mb-3 mt-5 bread">관리자 페이지</h1>
+	            <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Services</span></p> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+      <section class="ftco-section">
+          <div class="container">
+              <!--공지사항 관리 텍스트 -->
+              <div class="row justify-content-center mb-5 pb-3">
+                  <div class="col-md-7 heading-section ftco-animate text-center">
+                      <h2 class="mb-4">공지사항 관리</h2>
+                      <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p><br>
+                  </div>
+              </div>
+
+              <!--공지사항 리스트 -->
+              <div class="content-line">
+                  <ul class="content-line-ul">
+                      <li style="width: 7%; height: 100%;">번호</li>
+                      <li style="width: 45%; height: 100%">제목</li>
+                      <li style="width: 15%; height: 100%">작성자</li>
+                      <li style="width: 15%; height: 100%">등록일</li>
+                      <li style="width: 7%; height: 100%">조회</li>
+                      <li style="width: 11%; height: 100%">관리</li>
+                  </ul>
+                  <ul class="content-line-ul-1" th:each="notice : ${notice}">
+                      <li style="width: 7%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.no}"></a></li>
+                      <li style="width: 45%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.title}"></a></li>
+                      <li style="width: 15%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.name}"></a></li>
+                      <li style="width: 15%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.date}"></a></li>
+                      <li style="width: 7%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.viewcnt}"></a></li>
+                      <li style="width: 11%;">
+                              <div class="tagcloud">
+                          <a href="#" class="tag-cloud-link">수정</a>
+                          <a href="#" class="tag-cloud-link">삭제</a>
+                              </div>
+                      </li>
+                  </ul>
+                  <br><br><br><br>
+              </div>
+
+
+              <!-- 페이지 -->
+              <div class="row mt-5" style="padding-top: 3em">
+                  <div class="col text-center">
+                      <div class="block-27">
+                          <ul>
+                              <li><a href="#">&lt;</a></li>
+                              <th:block th:with="page = ${page}">
+                                  <th:block th:each="num : ${#numbers.sequence(page.pageStart,page.pageEnd)}">
+                                      <li th:classappend="${page.criteria.pageNum == num} ? 'active' : ''"> <!--th:classappend : 동적으로 클래스 추가하기-->
+                                          <a href="javascript:void(0)" th:text="${num}" th:onclick="movePage([ ${page.criteria.makeQueryString(num)} ])"></a>
+                                      </li>
+                                  </th:block>
+                              </th:block>
+                              <li><a href="#">&gt;</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="ftco-section">
+          <div class="container">
+              <div class="row justify-content-center mb-5 pb-3">
+                  <div class="col-md-7 heading-section ftco-animate text-center">
+                      <h2 class="mb-4">공지사항 관리</h2>
+                      <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p><br>
+                      <img src="/images/bunli.jpg" style="max-width:100%; height:30em">
+                      <p class="mt-6">이제 막 오픈한 캠핑장으로 나무 또한 아직 신생아입니다. 그늘이 많이 없는 점 양해 부탁드리며, 여름철엔 타프없인 힘들 것으로 예상되오니 참고 부탁드립니다.</p>
+                      <br><br>
+                      <h2 class="mb-4">2</h2>
+                      <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                      <p class="mt-6">ㅁㄴㅇㅁㄴ</p>
+
+                  </div>
+              </div>
+          </div>
+      </section>
+
+  <!-- footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <!-- loader -->
+  <div th:replace="/fragments/loader :: loader"></div>
+
+  </body>
+
+  <script th:javascript>
+      function movePage(queryString) {
+          console.log(queryString);
+          const uri = location.pathname;
+          const form = document.getElementById('searchForm');
+          console.log(form)
+
+
+          location.href = uri + queryString;
+      }
+  </script>
+</html>
