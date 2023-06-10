@@ -7,7 +7,14 @@
 
     <!-- 게시글 리스트 -->
     <select id="getNoticeList" resultType="com.example.dongjihwa0602.dto.Notice">
-        SELECT * FROM NOTICE
+        SELECT
+            NO
+                ,TITLE
+                ,NAME
+                ,CONTENT
+                ,DATE_FORMAT(DATE, '%Y-%m-%d') AS DATE
+                ,VIEWCNT
+        FROM NOTICE
         ORDER BY NO DESC
     </select>
 

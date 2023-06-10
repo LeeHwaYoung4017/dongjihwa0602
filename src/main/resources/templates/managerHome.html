@@ -58,10 +58,10 @@
                       <li style="width: 15%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.date}"></a></li>
                       <li style="width: 7%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.viewcnt}"></a></li>
                       <li style="width: 11%;">
-                              <div class="tagcloud">
-                          <a href="#" class="tag-cloud-link">수정</a>
-                          <a href="#" class="tag-cloud-link">삭제</a>
-                              </div>
+                          <div class="tagcloud">
+                              <a href="#" class="tag-cloud-link">수정</a>
+                              <a href="#" class="tag-cloud-link">삭제</a>
+                          </div>
                       </li>
                   </ul>
                   <br><br><br><br>
@@ -72,7 +72,7 @@
               <div class="row mt-5" style="padding-top: 3em">
                   <div class="col text-center">
                       <div class="block-27">
-                          <ul>
+                          <ul style="width: 92%">
                               <li><a href="#">&lt;</a></li>
                               <th:block th:with="page = ${page}">
                                   <th:block th:each="num : ${#numbers.sequence(page.pageStart,page.pageEnd)}">
@@ -82,6 +82,11 @@
                                   </th:block>
                               </th:block>
                               <li><a href="#">&gt;</a></li>
+                          </ul>
+                          <ul style="width: 8%">
+                              <div class="tagcloud">
+                                  <a style="float: right" href="#" class="tag-cloud-link">글작성</a>
+                              </div>
                           </ul>
                       </div>
                   </div>
