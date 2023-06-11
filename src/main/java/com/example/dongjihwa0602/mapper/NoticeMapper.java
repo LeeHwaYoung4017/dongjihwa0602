@@ -20,4 +20,8 @@ public interface NoticeMapper {
 
     int getReadNoticeCntCount(String no);
 
+    void deleteNotice(String no);
+
+    void successUpdateNotice(Notice notice);
+
 }

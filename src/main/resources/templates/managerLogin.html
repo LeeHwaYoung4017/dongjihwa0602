@@ -56,6 +56,11 @@
         var id = "dongjihwa1060";
         var password = "pascom1060";
 
+        var cash = {
+            'userId' : userId,
+            'userPassword' : userPassword
+        };
+
         if (userId == '') {
             alert("내용을 입력해주세요.");
             return;
@@ -64,6 +69,7 @@
             return;
         } else if (userId == id && userPassword == password) {
             alert("로그인 되었습니다..");
+            localStorage.setItem("cash", JSON.stringify(cash));
             location.href = '/managerHome';
         } else {
             //alert(userId);

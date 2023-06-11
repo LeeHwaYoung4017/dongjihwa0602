@@ -28,8 +28,6 @@ public class NoticeController {
         model.addAttribute("notice", noticeList);
 
         int total = noticeService.noticeTotalCount(criteria);
-        PageDto pageDto = new PageDto(criteria, total);
-        model.addAttribute("page", pageDto);
 
         return "notice";
     }
@@ -46,6 +44,7 @@ public class NoticeController {
     @PostMapping("/saveNotice")
     public String saveNotice(@RequestBody Notice notice){
         noticeService.saveNotice(notice);
+
         return "createNotice";
     }
 
@@ -53,5 +52,41 @@ public class NoticeController {
     public String createNotice(){
         return "createNotice";
     }
+
+    @GetMapping("/updateNotice/{no}")
+    public String updateNotice(@PathVariable("no") String no, Model model){
+        Notice notice = noticeService.getNoticeOne(no);
+        model.addAttribute("notice",notice);
+
+        return "updateNotice";
+    }
+
+    @PostMapping("/successUpdateNotice")
+    public String successUpdateNotice(@RequestBody Notice notice, Criteria criteria, Model model){
+        noticeService.successUpdateNotice(notice);
+        List<Notice> noticeList = noticeService.getNoticeList(criteria);
+        model.addAttribute("notice", noticeList);
+
+        int total = noticeService.noticeTotalCount(criteria);
+
+        return "managerHome";
+    }
+
+    @RequestMapping("/deleteNotice/{no}")
+    public String deleteNotice(@PathVariable("no") String no, Criteria criteria, Model model){
+        noticeService.deleteNotice(no);
+        List<Notice> noticeList = noticeService.getNoticeList(criteria);
+        model.addAttribute("notice", noticeList);
+
+        int total = noticeService.noticeTotalCount(criteria);
+/*
+        PageDto pageDto = new PageDto(criteria, total);
+        model.addAttribute("page", pageDto);
+*/
+
+        return "managerHome";
+    }
+
+
 
 }

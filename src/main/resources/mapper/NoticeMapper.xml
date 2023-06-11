@@ -64,4 +64,18 @@
                )
     </insert>
 
+    <!-- 게시글 수정 -->
+    <update id="successUpdateNotice" parameterType="com.example.dongjihwa0602.dto.Notice">
+        UPDATE NOTICE set
+                          TITLE=#{title},
+                          CONTENT=#{content},
+                          NAME=#{name}
+        WHERE NO = #{no}
+    </update>
+
+    <!-- 게시글 삭제 -->
+    <delete id="deleteNotice">
+        DELETE FROM NOTICE WHERE NO = #{no}
+    </delete>
+
 </mapper>

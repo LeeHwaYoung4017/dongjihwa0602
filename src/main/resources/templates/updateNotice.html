@@ -20,19 +20,20 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="name"><h5>작성자</h5></label>
-                        <input type="text" class="form-control" id="name" name="name" value="관리자" style="width: 100%">
+                        <input type="text" class="form-control" id="name" name="name" value="관리자" style="width: 100%" th:value="${notice.name}">
                     </div>
                     <div class="form-group">
                         <label for="title"><h5>제목</h5></label>
-                        <input type="text" class="form-control" id="title" name="title" style="width: 100%">
+                        <input type="text" class="form-control" id="title" name="title" style="width: 100%" th:value="${notice.title}">
                     </div>
 
                     <div class="form-group">
                         <label for="content"><h5>내용</h5></label>
-                        <textarea name="content" id="content" cols="100" rows="10" style="width: 100%" class="form-control"></textarea>
+                        <textarea name="content" id="content" cols="100" rows="10" style="width: 100%" class="form-control" th:text="${notice.content}"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="button" onclick="saveNotice()" value="저장하기" class="btn py-3 px-4 btn-primary">
+                        <!--<input type="button" th:onclick="updateNotice(${notice.no})" value="수정하기" class="btn py-3 px-4 btn-primary">-->
+                        <input type="button" th:onclick="updateNotice([[${notice.no}]])" value="수정하기" class="btn py-3 px-4 btn-primary">
                     </div>
 
                 </form>
@@ -54,7 +55,7 @@
 
     let oEditors = []
 
-    function saveNotice(){
+    function updateNotice(no){
         let content = document.getElementById("content").value;
 
         if(content == '') {
@@ -65,12 +66,13 @@
                 title: $("#title").val()
                 ,name: $("#name").val()
                 ,content: content
+                ,no: no
             };
 
             console.log(data);
 
             $.ajax({
-                url: "/saveNotice"
+                url: "/successUpdateNotice"
                 ,async : true
                 ,data: JSON.stringify(data)
                 ,type: 'POST'
@@ -82,7 +84,7 @@
                 ,error: function(jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR)
                     alert('오류가 발생하였습니다.')
-                    window.location.href = '/createNotice';
+                    window.location.href = '/managerHome';
                 }
             })
         }

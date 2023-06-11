@@ -59,8 +59,8 @@
                       <li style="width: 7%;"><a th:href="'readNotice/' + ${notice.no}" class="content-line-a" th:text="${notice.viewcnt}"></a></li>
                       <li style="width: 11%;">
                           <div class="tagcloud">
-                              <a href="#" class="tag-cloud-link">수정</a>
-                              <a href="#" class="tag-cloud-link">삭제</a>
+                              <a class="tag-cloud-link" th:href="'updateNotice/' + ${notice.no}">수정</a>
+                              <a class="tag-cloud-link" th:onclick="deleteNotice([[${notice.no}]])">삭제</a>
                           </div>
                       </li>
                   </ul>
@@ -69,28 +69,42 @@
 
 
               <!-- 페이지 -->
+
               <div class="row mt-5" style="padding-top: 3em">
                   <div class="col text-center">
                       <div class="block-27">
+                          <!--
                           <ul style="width: 92%">
-                              <li><a href="#">&lt;</a></li>
+                              <th:block th:if="${page.prev}">
+                                  <li>
+                                      <a href="javascript:void(0)" th:onclick="movePage([[ ${page.cri.makeQueryString(page.pageStart - 1)} ]])">&lt</a>
+                                  </li>
+                              </th:block>
                               <th:block th:with="page = ${page}">
                                   <th:block th:each="num : ${#numbers.sequence(page.pageStart,page.pageEnd)}">
-                                      <li th:classappend="${page.criteria.pageNum == num} ? 'active' : ''"> <!--th:classappend : 동적으로 클래스 추가하기-->
+                                      <li th:classappend="${page.criteria.pageNum == num} ? 'active' : ''"> &lt;!&ndash;th:classappend : 동적으로 클래스 추가하기&ndash;&gt;
                                           <a href="javascript:void(0)" th:text="${num}" th:onclick="movePage([ ${page.criteria.makeQueryString(num)} ])"></a>
                                       </li>
                                   </th:block>
+                              </th:block>
+                              &lt;!&ndash; 다음 버튼 &ndash;&gt;
+                              <th:block th:if="${page.next}">
+                                  <li>
+                                      <a href="javascript:void(0)" th:onclick="movePage([[ ${page.criteria.makeQueryString(page.pageEnd + 1)} ]])">&gt</a>
+                                  </li>
                               </th:block>
                               <li><a href="#">&gt;</a></li>
                           </ul>
                           <ul style="width: 8%">
                               <div class="tagcloud">
-                                  <a style="float: right" href="#" class="tag-cloud-link">글작성</a>
+                                  <a style="float: right" href="createNotice" class="tag-cloud-link">글작성</a>
                               </div>
                           </ul>
+                          -->
                       </div>
                   </div>
               </div>
+
           </div>
       </section>
 
@@ -121,6 +135,23 @@
   </body>
 
   <script th:javascript>
+      window.onload=function (){
+          JSON.parse(localStorage.getItem('cash'));
+          const userId = localStorage.getItem('userId');
+          const userPassword = localStorage.getItem('userPassword');
+          alert(userId);
+          if(userId == ""){
+              alert("관리자 페이지 입니다.");
+              location.href='managerLogin';
+          }
+          if(userPassword == ""){
+              alert("관리자 페이지 입니다.");
+              location.href='managerLogin';
+          }else {
+              alert("test");
+          }
+      }
+
       function movePage(queryString) {
           console.log(queryString);
           const uri = location.pathname;
@@ -129,6 +160,24 @@
 
 
           location.href = uri + queryString;
+      }
+
+      function deleteNotice(no){
+        $.ajax({
+            url: "/deleteNotice/"+no
+            ,async: true
+            ,data: JSON.stringify(no)
+            ,type: 'DELETE'
+            ,contentType: "application/json"
+            ,success: function (no){
+                alert('삭제되었습니다.');
+                window.location.href = '/managerHome';
+            }
+            ,error: function (){
+                alert('오류가 발생되었습니다 - '+no);
+                window.location.href = '/managerHome';
+            }
+        })
       }
   </script>
 </html>

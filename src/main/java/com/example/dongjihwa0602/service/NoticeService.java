@@ -37,4 +37,13 @@ public class NoticeService {
         return noticeMapper.getReadNoticeCntCount(no);
     }
 
+    public void deleteNotice(String no){
+        noticeMapper.deleteNotice(no);
+    }
+
+    @Transactional
+    public void successUpdateNotice(Notice notice){
+        noticeMapper.successUpdateNotice(notice);
+    }
+
 }
