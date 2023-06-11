@@ -15,7 +15,7 @@
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="row">
-            <div class="comment-form-wrap pt-5">
+            <div class="comment-form-wrap pt-5" style="margin: auto">
                 <h3 class="mb-5">로그인</h3>
                 <form method="post">
                     <div class="form-group">
@@ -53,13 +53,14 @@
     function login() {
         const userId = document.getElementById("userId").value;
         const userPassword = document.getElementById("userPassword").value;
-        var id = "dongjihwa1060";
-        var password = "pascom1060";
-
+        var id = "dongjihwa1060"; //관리자 아이디
+        var password = "pascom1060"; //관리자 비밀번호
+/*
         var cash = {
             'userId' : userId,
             'userPassword' : userPassword
         };
+*/
 
         if (userId == '') {
             alert("내용을 입력해주세요.");
@@ -69,7 +70,10 @@
             return;
         } else if (userId == id && userPassword == password) {
             alert("로그인 되었습니다..");
-            localStorage.setItem("cash", JSON.stringify(cash));
+            localStorage.setItem('userId', userId);
+            localStorage.setItem('userPassword', userPassword);
+            localStorage.setItem('setId', id);
+            localStorage.setItem('setPassword', password);
             location.href = '/managerHome';
         } else {
             //alert(userId);
