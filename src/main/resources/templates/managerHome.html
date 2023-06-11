@@ -67,40 +67,9 @@
                   <br><br><br><br>
               </div>
 
-
-              <!-- 페이지 -->
-
               <div class="row mt-5" style="padding-top: 3em">
                   <div class="col text-center">
                       <div class="block-27">
-                          <!--
-                          <ul style="width: 92%">
-                              <th:block th:if="${page.prev}">
-                                  <li>
-                                      <a href="javascript:void(0)" th:onclick="movePage([[ ${page.cri.makeQueryString(page.pageStart - 1)} ]])">&lt</a>
-                                  </li>
-                              </th:block>
-                              <th:block th:with="page = ${page}">
-                                  <th:block th:each="num : ${#numbers.sequence(page.pageStart,page.pageEnd)}">
-                                      <li th:classappend="${page.criteria.pageNum == num} ? 'active' : ''"> &lt;!&ndash;th:classappend : 동적으로 클래스 추가하기&ndash;&gt;
-                                          <a href="javascript:void(0)" th:text="${num}" th:onclick="movePage([ ${page.criteria.makeQueryString(num)} ])"></a>
-                                      </li>
-                                  </th:block>
-                              </th:block>
-                              &lt;!&ndash; 다음 버튼 &ndash;&gt;
-                              <th:block th:if="${page.next}">
-                                  <li>
-                                      <a href="javascript:void(0)" th:onclick="movePage([[ ${page.criteria.makeQueryString(page.pageEnd + 1)} ]])">&gt</a>
-                                  </li>
-                              </th:block>
-                              <li><a href="#">&gt;</a></li>
-                          </ul>
-                          <ul style="width: 8%">
-                              <div class="tagcloud">
-                                  <a style="float: right" href="createNotice" class="tag-cloud-link">글작성</a>
-                              </div>
-                          </ul>
-                          -->
                       </div>
                   </div>
               </div>
@@ -139,16 +108,23 @@
           JSON.parse(localStorage.getItem('cash'));
           const userId = localStorage.getItem('userId');
           const userPassword = localStorage.getItem('userPassword');
-          alert(userId);
-          if(userId == ""){
-              alert("관리자 페이지 입니다.");
+          const setId = localStorage.getItem('setId');
+          const setPassword = localStorage.getItem('setPassword');
+          if(userId == null){
+              alert("관리자 페이지 입니다. error coad : "+userId);
               location.href='managerLogin';
           }
-          if(userPassword == ""){
-              alert("관리자 페이지 입니다.");
+          if(userID != setId){
+              alert("관리자 페이지 입니다. error coad : "+userId);
               location.href='managerLogin';
-          }else {
-              alert("test");
+          }
+          if(userPassword == null){
+              alert("관리자 페이지 입니다. "+userPassword);
+              location.href='managerLogin';
+          }
+          if(userPassword != setPassword){
+              alert("관리자 페이지 입니다. "+userPassword);
+              location.href='managerLogin';
           }
       }
 
