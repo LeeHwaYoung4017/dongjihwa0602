@@ -17,9 +17,16 @@ import java.util.SimpleTimeZone;
 
 @Controller
 public class NoticeController {
-
+/* 필드 주입 (권장방식 아님)
     @Autowired
-    private NoticeService noticeService;
+    private  NoticeService noticeService;
+*/
+    // 생성자 주입 - 한번 찾아보기
+    private final NoticeService noticeService;
+
+    public NoticeController (NoticeService noticeService){
+        this.noticeService = noticeService;
+    }
 
     @GetMapping("/notice")
     public String getNoticeList(Criteria criteria, Model model){
@@ -86,7 +93,4 @@ public class NoticeController {
 
         return "managerHome";
     }
-
-
-
 }
