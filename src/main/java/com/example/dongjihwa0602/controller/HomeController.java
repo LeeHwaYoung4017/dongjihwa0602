@@ -16,10 +16,15 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    // 1. Field injection
+    // 2. Setter injection
 
-    @Autowired
-    private NoticeService noticeService;
+    // 3. Constructor injection ****
+    private final NoticeService noticeService;
 
+    public HomeController (NoticeService noticeService){
+        this.noticeService = noticeService;
+    }
     @RequestMapping("/")
     public String index(){
         return "index";
