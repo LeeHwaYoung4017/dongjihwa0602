@@ -108,24 +108,23 @@
 
   <script th:javascript>
       window.onload=function (){
-          JSON.parse(localStorage.getItem('cash'));
           const userId = localStorage.getItem('userId');
           const userPassword = localStorage.getItem('userPassword');
           const setId = localStorage.getItem('setId');
           const setPassword = localStorage.getItem('setPassword');
-          if(userId == null){
+          if(userId === null){
               alert("관리자 페이지 입니다. error coad : "+userId);
               location.href='managerLogin';
           }
-          if(userID != setId){
+          if(userId !== setId){
               alert("관리자 페이지 입니다. error coad : "+userId);
               location.href='managerLogin';
           }
-          if(userPassword == null){
+          if(userPassword === null){
               alert("관리자 페이지 입니다. "+userPassword);
               location.href='managerLogin';
           }
-          if(userPassword != setPassword){
+          if(userPassword !== setPassword){
               alert("관리자 페이지 입니다. "+userPassword);
               location.href='managerLogin';
           }
